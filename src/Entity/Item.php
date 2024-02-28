@@ -19,8 +19,8 @@ class Item
     private string $created;
 
 
-    public function __construct(string $itemId, string $title, string $created){
-        $this->setId($itemId);
+    public function __construct(string $id, string $title, string $created){
+        $this->setId($id);
         $this->setTitle($title);
         $this->setCreated($created);
     }

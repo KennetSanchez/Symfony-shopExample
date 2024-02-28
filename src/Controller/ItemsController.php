@@ -31,6 +31,20 @@ class ItemsController extends AbstractController
     #[Route('/{itemId}', name: 'item')]
     public function showItem(string $itemId): Response
     {
-        return $this->render('items/item.html.twig', ['itemId' => $itemId]);
+        $itemToShow = $this->selectItemProvisional($itemId);
+        return $this->render('items/item.html.twig', ['item' => $itemToShow]);
+    }
+
+    private function selectItemProvisional(string $itemId) : Item{
+
+        $foundedItem = null;
+
+        foreach ($this->items as &$item) {
+            if( $item->getId() === $itemId ){
+                $foundedItem = $item;
+            }
+        }
+
+        return $foundedItem;
     }
 }
