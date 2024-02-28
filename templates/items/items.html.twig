@@ -1,0 +1,15 @@
+<h1>Listado de items</h1>
+<table style="border: 1px" >
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Fecha de creación</th>
+    </tr>
+    {% for item in items %}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.created}}</td>
+        </tr>
+    {% endfor %}
+</table>
