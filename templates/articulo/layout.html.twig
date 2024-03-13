@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {# En symfony 7 recomiendan separarlo por carpetas así,y no por bundles. #}
+    <link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+    <div id="layout">
+        <div id="header">
+            <h1>Encabezado</h1>
+        </div>
+        <div id="content" class="clean" >
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div id="footer">
+            <p>Pie {{"now"|date("m/d/Y")}}</p>
+        </div>
+    </div>
+{% endblock %}

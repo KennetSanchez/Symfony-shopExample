@@ -1,0 +1,6 @@
+{% extends 'articulo/plantilla_articulo.html.twig' %}
+
+{% block content %}
+{#    El enunciado dice que se ponga en mayúsculas el nombre de contacto, pero asumo que se refiere al nombre del articulo.#}
+    El artíclo solicitado es: {{articulo.title | upper}}
+{% endblock %}

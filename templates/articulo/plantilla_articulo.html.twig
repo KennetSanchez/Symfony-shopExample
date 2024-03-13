@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+    <div id="layout">
+        <div id="header">
+            <h1>Encabezado</h1>
+            <img src='{{  asset('images/raccoon1.jpg')}}' height="200px" width="200px" alt="item image"/>
+            {{ include('articulo/mostrar_imagen.html.twig') }}
+{#            Lo intenté de mil formas, pero no logré encontrar como hacer que funcionara pasando solo el nombre del archivo. No me dejaba concatenarlo en el otro archivo.#}
+            {{ include('articulo/mostrar_imagen_parametro.html.twig', {pathToImage : 'images/raccoon1.jpg'})}}
+
+        </div>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div id="footer">
+            <p>Pie {{"now"|date("m/d/Y")}}</p>
+        </div>
+    </div>
+{% endblock %}
